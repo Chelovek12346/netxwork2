@@ -12,6 +12,8 @@ import json
 from decouple import config
 
 
+from accounts.forms import LoginForm, SignupForm
+
 genai.configure(api_key=config('GEMINI_API_KEY'))
 
 
