@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0066ff" />
+    <meta name="description" content="netXwork is a platform where students, entrepreneurs, and startup enthusiasts can find teammates, join events, and learn new skills." />
+    <title>netXwork - Connect, Collaborate, Create</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      /* Reset & Base Styles */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      :root {
+        --primary: #0066ff;
+        --primary-dark: #0055e0;
+        --secondary: #172b4d;
+        --accent: #ffc107;
+        --light: #f8f9fa;
+        --dark: #212529;
+        --gray: #6c757d;
+        --gray-light: #e9ecef;
+        --success: #28a745;
+        --border-radius: 12px;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        background-color: #fff;
+        overflow-x: hidden;
+      }
+      
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      
+      .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        text-align: center;
+      }
+      
+      .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      
+      .btn-secondary {
+        background-color: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+      
+      .btn-secondary:hover {
+        background-color: rgba(0, 102, 255, 0.1);
+      }
+      
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-sm);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+      
+      header.scrolled {
+        box-shadow: var(--shadow);
+      }
+      
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 2rem;
+      }
+      
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      
+      .logo-circle {
+        width: 48px;
+        height: 48px;
+        background-color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-right: 0.75rem;
+      }
+      
+      .logo-text {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+      
+      .nav-link {
+        font-weight: 500;
+        position: relative;
+        transition: var(--transition);
+        font-size: 1.125rem;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: var(--transition);
+      }
+      
+      .nav-link:hover {
+        color: var(--primary);
+      }
+      
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      
+      .auth-buttons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      /* Hero Section */
+      .hero {
+        padding: 10rem 0 6rem;
+        background: linear-gradient(120deg, #f8f9fa 0%, #e1e8f5 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background-color: rgba(208, 224, 249, 0.5);
+        border-radius: 0 0 0 60%;
+        z-index: 1;
+      }
+      
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+      
+      .hero-content {
+        padding-right: 2rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: var(--secondary);
+      }
+      
+      .hero-content p {
+        font-size: 1.25rem;
+        color: var(--gray);
+        margin-bottom: 2rem;
+        max-width: 90%;
+      }
+      
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      
+      .hero-image {
+        position: relative;
+      }
+      
+      .hero-image img {
+        width: 100%;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .floating-card {
+        position: absolute;
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 1.25rem;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 60%;
+      }
+      
+      .floating-card-top {
+        top: 15%;
+        left: -15%;
+      }
+      
+      .floating-card-bottom {
+        bottom: 15%;
+        right: -15%;
+      }
+      
+      .floating-card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background-color: rgba(0, 102, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .floating-card-text {
+        flex: 1;
+      }
+      
+      .floating-card-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      
+      .floating-card-subtitle {
+        font-size: 0.85rem;
+        color: var(--gray);
+      }
+      
+      /* Features Section */
+      .features {
+        padding: 6rem 0;
+      }
+      
+      .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+      }
+      
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--gray);
+      }
+      
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      
+      .feature-card {
+        background-color: #fff;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .feature-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        background-color: rgba(0, 102, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      
+      .feature-description {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+      }
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .auth-modal {
+        background-color: white;
+        border-radius: 20px;
+        width: 95%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 2rem;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .modal-overlay.active .auth-modal {
+        transform: translateY(0);
+      }
+      
+      .modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #f8f9fa;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      
+      .modal-close:hover {
+        background-color: #e9ecef;
+      }
+      
+      .modal-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .modal-header .logo {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .modal-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #e9ecef;
+        position: relative;
+      }
+      
+      .modal-tab {
+        padding: 1rem 1.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #6c757d;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .modal-tab::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #0066ff;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      
+      .modal-tab.active {
+        color: #0066ff;
+      }
+      
+      .modal-tab.active::after {
+        transform: scaleX(1);
+      }
+      
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+      
+      .tab-content.active {
+        display: block;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      /* Form Styles */
+      .auth-form {
+        margin-bottom: 2rem;
+      }
+      
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #212529;
+      }
+      
+      .form-group input {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1px solid #e9ecef;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      
+      .form-group input:focus {
+        outline: none;
+        border-color: #0066ff;
+        box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+      }
+      
+      .password-input {
+        position: relative;
+      }
+      
+      .password-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #6c757d;
+      }
+      
+      .hidden {
+        display: none;
+      }
+      
+      .form-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .remember-me {
+        display: flex;
+        align-items: center;
+      }
+      
+      .remember-me input {
+        margin-right: 0.5rem;
+      }
+      
+      .forgot-password {
+        color: #0066ff;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      
+      .forgot-password:hover {
+        text-decoration: underline;
+      }
+      
+      .form-agreement {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+      
+      .form-agreement input {
+        margin-right: 0.5rem;
+        margin-top: 0.25rem;
+      }
+      
+      .form-agreement a {
+        color: #0066ff;
+      }
+      
+      .form-agreement a:hover {
+        text-decoration: underline;
+      }
+      
+      .btn-auth {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
+        border-radius: 10px;
+      }
+      
+      /* Social Auth */
+      .social-auth {
+        margin-top: 2rem;
+      }
+      
+      .social-auth-divider {
+        position: relative;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .social-auth-divider::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #e9ecef;
+      }
+      
+      .social-auth-divider span {
+        position: relative;
+        background-color: white;
+        padding: 0 1rem;
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+      
+      .social-auth-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+      
+      .social-auth-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 0.85rem;
+        border: 1px solid #e9ecef;
+        border-radius: 10px;
+        background-color: white;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .social-auth-btn:hover {
+        background-color: #f8f9fa;
+        border-color: #dce0e5;
+      }
+      
+      @media (max-width: 576px) {
+        .auth-modal {
+          padding: 1.5rem;
+        }
+      
+        .social-auth-buttons {
+          flex-direction: column;
+        }
+      }
+      /* How It Works Section */
+      .how-it-works {
+        padding: 6rem 0;
+        background-color: var(--light);
+      }
+      
+      .steps {
+        position: relative;
+        padding: 2rem 0;
+      }
+      
+      .steps::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background-color: var(--gray-light);
+        z-index: 1;
+      }
+      
+      .step {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 6rem;
+      }
+      
+      .step:last-child {
+        margin-bottom: 0;
+      }
+      
+      .step:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+      
+      .step:nth-child(even) .step-content {
+        text-align: right;
+        padding-right: 4rem;
+        padding-left: 0;
+      }
+      
+      .step-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: white;
+        font-weight: 700;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        box-shadow: var(--shadow);
+      }
+      
+      .step-image {
+        width: 50%;
+        padding: 0 4rem;
+      }
+      
+      .step-image img {
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+      }
+      
+      .step-content {
+        width: 50%;
+        padding-left: 4rem;
+      }
+      
+      .step-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      
+      .step-description {
+        color: var(--gray);
+        line-height: 1.7;
+      }
+      
+      /* Testimonials Section */
+      .testimonials {
+        padding: 6rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .testimonials::before,
+      .testimonials::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%);
+        z-index: 0;
+      }
+      
+      .testimonials::before {
+        top: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+      }
+      
+      .testimonials::after {
+        bottom: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+      }
+      
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .testimonial-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .testimonial-content {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        color: var(--secondary);
+        line-height: 1.7;
+      }
+      
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+      
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--gray-light);
+        margin-right: 1rem;
+        overflow: hidden;
+      }
+      
+      .author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .author-info h4 {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      
+      .author-info p {
+        font-size: 0.85rem;
+        color: var(--gray);
+      }
+      
+      /* CTA Section */
+      .cta {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, var(--primary) 0%, #3a89ff 100%);
+        color: white;
+        text-align: center;
+      }
+      
+      /* Footer */
+      footer {
+        background-color: var(--secondary);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 3rem;
+      }
+      
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-logo .logo-circle {
+        background-color: white;
+        color: var(--secondary);
+      }
+      
+      .footer-logo .logo-text {
+        color: white;
+      }
+      
+      .footer-about {
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+      }
+      
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+      
+      .social-link:hover {
+        background-color: var(--primary);
+      }
+      
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-links {
+        list-style: none;
+      }
+      
+      .footer-link {
+        margin-bottom: 0.85rem;
+      }
+      
+      .footer-link a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: var(--transition);
+      }
+      
+      .footer-link a:hover {
+        color: white;
+      }
+      
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+      
+      .footer-bottom-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 1024px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      
+        .steps::before {
+          display: none;
+        }
+      
+        .step {
+          flex-direction: column !important;
+          margin-bottom: 4rem;
+          text-align: center;
+        }
+      
+        .step-number {
+          position: static;
+          transform: none;
+          margin: 0 auto 2rem;
+        }
+      
+        .step-image,
+        .step-content {
+          width: 100%;
+          padding: 0;
+          text-align: center !important;
+        }
+      
+        .step-image {
+          margin-bottom: 2rem;
+        }
+      
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .header-container {
+          padding: 1rem;
+        }
+      
+        .nav-links {
+          display: none;
+        }
+      
+        .auth-buttons {
+          display: none;
+        }
+      
+        .hero {
+          padding: 8rem 0 4rem;
+        }
+      
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+      
+        .hero-content h1 {
+          font-size: 3rem;
+        }
+      
+        .floating-card {
+          position: static;
+          margin-bottom: 1rem;
+          width: 100%;
+        }
+      
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+      
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+      
+        .hero-buttons {
+          flex-direction: column;
+        }
+      
+        .hero-buttons .btn {
+          width: 100%;
+        }
+      
+        .section-title {
+          font-size: 2rem;
+        }
+      
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+      
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      
+        .footer-bottom {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+      
+        .footer-bottom-links {
+          justify-content: center;
+        }
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        background-color: #fff;
+        overflow-x: hidden;
+      }
+      
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      
+      .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        text-align: center;
+      }
+      
+      .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      
+      .btn-secondary {
+        background-color: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+      }
+      
+      .btn-secondary:hover {
+        background-color: rgba(0, 102, 255, 0.1);
+      }
+      
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-sm);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+      
+      header.scrolled {
+        box-shadow: var(--shadow);
+      }
+      
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 2rem;
+      }
+      
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      
+      .logo-circle {
+        width: 48px;
+        height: 48px;
+        background-color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.25rem;
+        margin-right: 0.75rem;
+      }
+      
+      .logo-text {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+      
+      .nav-link {
+        font-weight: 500;
+        position: relative;
+        transition: var(--transition);
+        font-size: 1.125rem;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: var(--transition);
+      }
+      
+      .nav-link:hover {
+        color: var(--primary);
+      }
+      
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      
+      .auth-buttons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      /* Hero Section */
+      .hero {
+        padding: 10rem 0 6rem;
+        background: linear-gradient(120deg, #f8f9fa 0%, #e1e8f5 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background-color: rgba(208, 224, 249, 0.5);
+        border-radius: 0 0 0 60%;
+        z-index: 1;
+      }
+      
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+      
+      .hero-content {
+        padding-right: 2rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: var(--secondary);
+      }
+      
+      .hero-content p {
+        font-size: 1.25rem;
+        color: var(--gray);
+        margin-bottom: 2rem;
+        max-width: 90%;
+      }
+      
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      
+      .hero-image {
+        position: relative;
+      }
+      
+      .hero-image img {
+        width: 100%;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .floating-card {
+        position: absolute;
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 1.25rem;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 60%;
+      }
+      
+      .floating-card-top {
+        top: 15%;
+        left: -15%;
+      }
+      
+      .floating-card-bottom {
+        bottom: 15%;
+        right: -15%;
+      }
+      
+      .floating-card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background-color: rgba(0, 102, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .floating-card-text {
+        flex: 1;
+      }
+      
+      .floating-card-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+      
+      .floating-card-subtitle {
+        font-size: 0.85rem;
+        color: var(--gray);
+      }
+      
+      /* Features Section */
+      .features {
+        padding: 6rem 0;
+      }
+      
+      .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+      }
+      
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--gray);
+      }
+      
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      
+      .feature-card {
+        background-color: #fff;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+      
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .feature-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        background-color: rgba(0, 102, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      
+      .feature-description {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+      }
+      
+      /* How It Works Section */
+      .how-it-works {
+        padding: 6rem 0;
+        background-color: var(--light);
+      }
+      
+      /* Footer */
+      footer {
+        background-color: var(--secondary);
+        color: white;
+        padding: 4rem 0 2rem;
+      }
+      
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 3rem;
+      }
+      
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-logo .logo-circle {
+        background-color: white;
+        color: var(--secondary);
+      }
+      
+      .footer-logo .logo-text {
+        color: white;
+      }
+      
+      .footer-about {
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+      }
+      
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+      
+      .social-link:hover {
+        background-color: var(--primary);
+      }
+      
+      .footer-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+      
+      .footer-links {
+        list-style: none;
+      }
+      
+      .footer-link {
+        margin-bottom: 0.85rem;
+      }
+      
+      .footer-link a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: var(--transition);
+      }
+      
+      .footer-link a:hover {
+        color: white;
+      }
+      
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+      }
+      
+      .footer-bottom-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 1024px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .header-container {
+          padding: 1rem;
+        }
+      
+        .nav-links {
+          display: none;
+        }
+      
+        .auth-buttons {
+          display: none;
+        }
+      
+        .hero {
+          padding: 8rem 0 4rem;
+        }
+      
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+      
+        .hero-content h1 {
+          font-size: 3rem;
+        }
+      
+        .floating-card {
+          position: static;
+          margin-bottom: 1rem;
+          width: 100%;
+        }
+      
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+      
+        .hero-buttons {
+          flex-direction: column;
+        }
+      
+        .hero-buttons .btn {
+          width: 100%;
+        }
+      
+        .section-title {
+          font-size: 2rem;
+        }
+      
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+      
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      
+        .footer-bottom {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+      
+        .footer-bottom-links {
+          justify-content: center;
+        }
+      }
+      .partners {
+        padding: 5rem 0;
+        background-color: #fff;
+        overflow: hidden;
+      }
+      
+      .partners-slider-container {
+        margin-top: 4rem;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .partners-slider-container::before,
+      .partners-slider-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        z-index: 2;
+      }
+      
+      .partners-slider-container::before {
+        left: 0;
+        background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+      }
+      
+      .partners-slider-container::after {
+        right: 0;
+        background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+      }
+      
+      .partners-slider {
+        width: 100%;
+        overflow: hidden;
+      }
+      
+      .partners-track {
+        display: flex;
+        animation: scroll 40s linear infinite;
+      }
+      
+      .partner-logo {
+        flex: 0 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .partner-logo img {
+        max-width: 100%;
+        max-height: 60px;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+      }
+      
+      .partner-logo:hover img {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+      
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      /* При наведении останавливаем анимацию */
+      .partners-slider:hover .partners-track {
+        animation-play-state: paused;
+      }
+      
+      /* Медиа-запросы для адаптивности */
+      @media (max-width: 768px) {
+        .partner-logo {
+          padding: 0 1.5rem;
+        }
+      
+        .partner-logo img {
+          max-height: 50px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .partner-logo {
+          padding: 0 1rem;
+        }
+      
+        .partner-logo img {
+          max-height: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <a href="#" class="logo">
+          <div class="logo-circle">nX</div>
+          <div class="logo-text">netXwork</div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="#" class="nav-link">About Us</a>
+        </nav>
+
+        <div class="auth-buttons">
+          <button class="btn btn-secondary">Log In</button>
+          <button class="btn">Sign Up</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <h1>Connect, Collaborate, Create.</h1>
+          <p>Find teammates for your projects, join events, and learn new skills on netXwork - the platform for students, entrepreneurs, and startup enthusiasts.</p>
+          <div class="hero-buttons">
+            <button class="btn">Get Started</button>
+            <button class="btn btn-secondary">Learn More</button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://img.freepik.com/free-vector/businessmen-shaking-hands-through-laptop-screens-as-online-business-conference-meeting_335657-4405.jpg?ga=GA1.1.1104338687.1743362033&semt=ais_hybrid&w=740" alt="netXwork platform interface" />
+          <div class="floating-card floating-card-top">
+            <div class="floating-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="floating-card-text">
+              <div class="floating-card-title">Find Perfect Teammates</div>
+              <div class="floating-card-subtitle">Connect with like-minded people</div>
+            </div>
+          </div>
+          <div class="floating-card floating-card-bottom">
+            <div class="floating-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div class="floating-card-text">
+              <div class="floating-card-title">Join Exciting Events</div>
+              <div class="floating-card-subtitle">Expand your network</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="modal-overlay" id="authModal">
+      <div class="auth-modal">
+        <button class="modal-close" id="modalClose">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="modal-header">
+          <div class="logo">
+            <div class="logo-circle">nX</div>
+            <div class="logo-text">netXwork</div>
+          </div>
+        </div>
+
+        <div class="modal-tabs">
+          <button class="modal-tab active" data-tab="login">Log In</button>
+          <button class="modal-tab" data-tab="signup">Sign Up</button>
+        </div>
+
+        <div class="modal-content">
+          <!-- Login Form -->
+          <div class="tab-content active" id="login-tab">
+            <form class="auth-form" id="loginForm" action="{% url 'account_login' %}">
+              {% csrf_token %}
+              {{ login_form.non_field_errors }}
+              <div class="form-group">
+                <label for="{{ login_form.login.id_for_label }}">Email</label>
+                {{ login_form.login }}
+                {% for error in login_form.login.errors %}
+                  <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                <label for="{{ login_form.password.id_for_label }}">Password</label>
+                <div class="password-input">
+                  {{ login_form.password }}
+                  {% for error in login_form.password.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                  {% endfor %}
+                  <button type="button" class="password-toggle">
+                    <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <svg class="eye-off-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                      <line x1="1" y1="1" x2="23" y2="23"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="form-footer">
+                <div class="remember-me">
+                  {{ login_form.remember }} <label for="{{ login_form.remember.id_for_label }}">Remember me</label>
+                </div>
+                <a href="{% url 'account_reset_password' %}">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn-auth">Log In</button>
+            </form>
+
+            <div class="social-auth">
+              <div class="social-auth-divider">
+                <span>Or continue with</span>
+              </div>
+              <div class="social-auth-buttons">
+                <button class="social-auth-btn google">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#EA4335">
+                    <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"></path>
+                  </svg>
+                  <span>Google</span>
+                </button>
+                <button class="social-auth-btn github">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#000000">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                  </svg>
+                  <span>GitHub</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Signup Form -->
+          <div class="tab-content" id="signup-tab">
+            <form class="auth-form" id="signupForm" method="POST" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              {{ signup_form.non_field_errors }}
+
+              {% for field in signup_form %}
+                <div class="form-group">
+                  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                  {% if field.name == 'password1' or field.name == 'password2' %}
+                    <div class="password-input">
+                      {{ field }}
+                      <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                        <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg class="eye-off-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                          <line x1="1" y1="1" x2="23" y2="23"></line>
+                        </svg>
+                      </button>
+                    </div>
+                  {% else %}
+                    {{ field }}
+                  {% endif %}
+
+                  {% for error in field.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                  {% endfor %}
+                </div>
+              {% endfor %}
+
+              <div class="form-agreement">
+                <input type="checkbox" id="termsAgreement" required />
+                <label for="termsAgreement">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+              </div>
+
+              <button type="submit" class="btn-auth">Create Account</button>
+            </form>
+
+            <div class="social-auth">
+              <div class="social-auth-divider">
+                <span>Or sign up with</span>
+              </div>
+              <div class="social-auth-buttons">
+                <button class="social-auth-btn google">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#EA4335">
+                    <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"></path>
+                  </svg>
+                  <span>Google</span>
+                </button>
+                <button class="social-auth-btn github">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#000000">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                  </svg>
+                  <span>GitHub</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">What We Offer</div>
+          <h2 class="section-title">Everything You Need to Succeed</h2>
+          <p class="section-description">Our platform provides all the tools and resources to find the right team, participate in valuable events, and acquire the skills you need.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Team Matching</h3>
+            <p class="feature-description">Find the perfect teammates for your project based on skills, interests, and goals. Connect with individuals who share your vision.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Events & Workshops</h3>
+            <p class="feature-description">Join hackathons, workshops, and networking events. Meet industry experts and expand your professional network.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Learning Zone</h3>
+            <p class="feature-description">Access curated educational content such as podcasts, raising tools, courses, articles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">How It Works</div>
+          <h2 class="section-title">Your Journey to Success</h2>
+          <p class="section-description">From registration to collaboration, netXwork makes it easy to connect with the right people and resources.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-image">
+              <img src="https://img.freepik.com/free-vector/blog-post-concept-illustration_114360-92.jpg?ga=GA1.1.1104338687.1743362033&semt=ais_hybrid&w=740" alt="Create your profile" />
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Create Your Profile</h3>
+              <p class="step-description">Sign up and create your profile highlighting your skills, interests, and goals. This helps us match you with the right people and opportunities.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-image">
+              <img src="https://img.freepik.com/free-vector/teamwork-concept-landing-page_52683-20165.jpg?ga=GA1.1.1104338687.1743362033&semt=ais_hybrid&w=740" alt="Connect with teammates" />
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Find Teammates</h3>
+              <p class="step-description">Browse potential teammates based on your criteria or let our matching algorithm suggest the perfect matches for your project.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-image">
+              <img src="https://img.freepik.com/free-vector/cancelled-musical-events_23-2148583932.jpg?ga=GA1.1.1104338687.1743362033&semt=ais_hybrid&w=740" alt="Join events" />
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Join Events</h3>
+              <p class="step-description">Participate in hackathons, workshops, and networking events to enhance your skills and expand your professional network.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-image">
+              <img src="https://img.freepik.com/free-vector/startup-abstract-concept_335657-3029.jpg?ga=GA1.1.1104338687.1743362033&semt=ais_hybrid&w=740" alt="Launch your project" />
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Launch Your Project</h3>
+              <p class="step-description">Collaborate with your team, utilize our resources, and bring your ideas to life. netXwork supports you at every step of your journey.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="partners">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Trusted By</div>
+          <h2 class="section-title">Our Partners</h2>
+          <p class="section-description">We collaborate with leading companies and institutions to provide the best opportunities for our community.</p>
+        </div>
+
+        <div class="partners-slider-container">
+          <div class="partners-slider">
+            <div class="partners-track">
+              <!-- Повторяющийся набор логотипов для бесконечной анимации -->
+              <div class="partner-logo">
+                <img src="https://foundity.com/favicon.ico" alt="Partner 1" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 2" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 3" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 4" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 5" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 6" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 7" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 8" />
+              </div>
+
+              <!-- Дублирование логотипов для бесшовной прокрутки -->
+              <div class="partner-logo">
+                <img src="https://foundity.com/favicon.ico" alt="Partner 1" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 2" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 3" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 4" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 5" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 6" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 7" />
+              </div>
+              <div class="partner-logo">
+                <img src="/api/placeholder/180/60" alt="Partner 8" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Success Stories</div>
+          <h2 class="section-title">What Our Users Say</h2>
+          <p class="section-description">Hear from students, entrepreneurs, and professionals who have found success through netXwork.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-content">"Through netXwork, I found two co-founders with complementary skills for my startup. Six months later, we secured our first round of funding. The platform's matching algorithm is spot on!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="/api/placeholder/50/50" alt="Alex Chen" />
+              </div>
+              <div class="author-info">
+                <h4>Alex Chen</h4>
+                <p>Founder, TechInnovate</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-content">"As a student looking to gain real-world experience, netXwork connected me with a startup that needed my design skills. The experience I gained was invaluable for my career."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="/api/placeholder/50/50" alt="Sarah Johnson" />
+              </div>
+              <div class="author-info">
+                <h4>Sarah Johnson</h4>
+                <p>UI/UX Designer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-content">"The hackathons and workshops on netXwork are top-notch. I've learned new skills, made valuable connections, and even landed a job through someone I met at an event!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="/api/placeholder/50/50" alt="Michael Rodriguez" />
+              </div>
+              <div class="author-info">
+                <h4>Michael Rodriguez</h4>
+                <p>Software Developer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p class="testimonial-content">"I was looking for teammates with specific skills for my research project. netXwork not only helped me find the right people but also provided resources that accelerated our progress."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <img src="/api/placeholder/50/50" alt="Emily Wang" />
+              </div>
+              <div class="author-info">
+                <h4>Emily Wang</h4>
+                <p>PhD Researcher</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2 class="section-title" style="color: white;">Ready to Join Our Community?</h2>
+        <p class="section-description" style="color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto 2rem;">Connect with like-minded individuals, find your perfect team, and turn your ideas into reality with netXwork. Our platform is designed to help you succeed at every step of your journey.</p>
+        <div style="display: flex; justify-content: center; gap: 1rem;">
+          <button class="btn" style="background-color: white; color: var(--primary); font-size: 1.1rem; padding: 14px 32px;">Get Started Now</button>
+          <button class="btn" style="background-color: transparent; color: white; border: 2px solid white; font-size: 1.1rem; padding: 14px 32px;">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <div class="logo-circle">nX</div>
+              <div class="logo-text">netXwork</div>
+            </div>
+            <p class="footer-about">netXwork is an online platform connecting students, entrepreneurs, and startup enthusiasts to form teams, join events, and learn new skills.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="footer-title">Platform</h3>
+            <ul class="footer-links">
+              <li class="footer-link">
+                <a href="#">Teams</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Events</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Courses</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Community</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-title">Company</h3>
+            <ul class="footer-links">
+              <li class="footer-link">
+                <a href="#">About Us</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Careers</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Blog</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Press</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-title">Support</h3>
+            <ul class="footer-links">
+              <li class="footer-link">
+                <a href="#">Help Center</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">FAQ</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Contact Us</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Terms of Service</a>
+              </li>
+              <li class="footer-link">
+                <a href="#">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 netXwork. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#" class="footer-bottom-link">Terms</a>
+            <a href="#" class="footer-bottom-link">Privacy</a>
+            <a href="#" class="footer-bottom-link">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      window.addEventListener('scroll', function () {
+        const header = document.getElementById('header')
+        if (window.scrollY > 10) {
+          header.classList.add('scrolled')
+        } else {
+          header.classList.remove('scrolled')
+        }
+      })
+      // Элементы DOM
+      const authModal = document.getElementById('authModal')
+      const modalClose = document.getElementById('modalClose')
+      const modalTabs = document.querySelectorAll('.modal-tab')
+      const tabContents = document.querySelectorAll('.tab-content')
+      const passwordToggles = document.querySelectorAll('.password-toggle')
+      const loginForm = document.getElementById('loginForm')
+      const signupForm = document.getElementById('signupForm')
+      
+      // Кнопки, которые должны открывать модальное окно
+      const authTriggers = document.querySelectorAll('.btn-secondary, .btn')
+      
+      // Открытие модального окна
+      function openModal() {
+        authModal.classList.add('active')
+        document.body.style.overflow = 'hidden' // Запрет прокрутки страницы
+      }
+      
+      // Закрытие модального окна
+      function closeModal() {
+        authModal.classList.remove('active')
+        document.body.style.overflow = '' // Разрешение прокрутки страницы
+      }
+      
+      // Переключение между вкладками
+      function switchTab(tabId) {
+        // Активация вкладки
+        modalTabs.forEach((tab) => {
+          if (tab.dataset.tab === tabId) {
+            tab.classList.add('active')
+          } else {
+            tab.classList.remove('active')
+          }
+        })
+      
+        // Активация содержимого вкладки
+        tabContents.forEach((content) => {
+          if (content.id === `${tabId}-tab`) {
+            content.classList.add('active')
+          } else {
+            content.classList.remove('active')
+          }
+        })
+      }
+      
+      // Переключение видимости пароля
+      function togglePasswordVisibility(toggle) {
+        const passwordInput = toggle.closest('.password-input').querySelector('input')
+        const eyeIcon = toggle.querySelector('.eye-icon')
+        const eyeOffIcon = toggle.querySelector('.eye-off-icon')
+      
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text'
+          eyeIcon.classList.add('hidden')
+          eyeOffIcon.classList.remove('hidden')
+        } else {
+          passwordInput.type = 'password'
+          eyeIcon.classList.remove('hidden')
+          eyeOffIcon.classList.add('hidden')
+        }
+      }
+      
+      // Обработка отправки формы входа
+      function handleLoginSubmit(e) {
+        e.preventDefault()
+        // Здесь будет логика авторизации
+        console.log('Login submitted')
+      
+        // Закрытие модального окна после успешной авторизации
+        closeModal()
+      }
+      
+      // Обработка отправки формы регистрации
+      function handleSignupSubmit(e) {
+        e.preventDefault()
+        // Здесь будет логика регистрации
+        console.log('Signup submitted')
+      
+        // Закрытие модального окна после успешной регистрации
+        closeModal()
+      }
+      
+      // Назначение обработчиков событий
+      
+      // Открытие модального окна
+      authTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault()
+          openModal()
+      
+          // Если это кнопка Sign Up, показываем вкладку регистрации
+          if (trigger.textContent.trim() === 'Sign Up') {
+            switchTab('signup')
+          } else {
+            switchTab('login')
+          }
+        })
+      })
+      
+      // Закрытие модального окна
+      modalClose.addEventListener('click', closeModal)
+      
+      // Закрытие модального окна при клике на оверлей
+      authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) {
+          closeModal()
+        }
+      })
+      
+      // Переключение между вкладками
+      modalTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          switchTab(tab.dataset.tab)
+        })
+      })
+      
+      // Переключение видимости пароля
+      passwordToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          togglePasswordVisibility(toggle)
+        })
+      })
+      
+      // Обработка отправки форм
+      //loginForm.addEventListener('submit', handleLoginSubmit)
+      // signupForm.addEventListener('submit', handleSignupSubmit)
+      
+      // Закрытие модального окна с помощью клавиши Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && authModal.classList.contains('active')) {
+          closeModal()
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    
+</body>
+</html>
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">nX</div>
+                <div class="logo-text">netXwork</div>
+            </a>
+            
+            <div class="header-right">
+                <div class="notifications">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge">3</span>
+                    
+                    <div class="notification-panel">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <a href="#" style="color: var(--primary); font-size: 0.875rem;">Mark all as read</a>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item">
+                                <div class="notification-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-title">Team request approved</div>
+                                    <div class="notification-text">Your request to join AI Research Group has been approved.</div>
+                                    <div class="notification-time">5 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-title">New event: AI Hackathon</div>
+                                    <div class="notification-text">A new event matching your interests has been posted.</div>
+                                    <div class="notification-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-title">New course available</div>
+                                    <div class="notification-text">Startup Funding 101 - Learn how to secure investments.</div>
+                                    <div class="notification-time">Yesterday</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-footer">
+                            <a href="#" style="color: var(--primary);">View all notifications</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="/api/placeholder/36/36" alt="User Avatar">
+                    </div>
+                    <span>John Doe</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    
+                    <div class="profile-menu">
+                        <a href="#" class="profile-menu-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            My Profile
+                        </a>
+                        <a href="#" class="profile-menu-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                            Settings
+                        </a>
+                        <a href="#" class="profile-menu-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                            Help Center
+                        </a>
+                        <a href="#" class="profile-menu-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+        <div class="container">
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Team Matches</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Upcoming Events</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Available Courses</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Saved Favorites</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard Sections -->
+            <div class="dashboard-grid">
+                <!-- Teams Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <div class="card-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            My Teams
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="team-card">
+                            <div class="team-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="team-info">
+                                <div class="team-name">AI Research Group</div>
+                                <div class="team-meta">5 members • Tech • Remote</div>
+                            </div>
+                            <div class="team-actions">
+                                <button class="btn btn-sm btn-secondary" onclick="openModal('teamDetailsModal')">View</button>
+                            </div>
+                        </div>
+                        
+                        <div class="team-card">
+                            <div class="team-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                            </div>
+                            <div class="team-info">
+                                <div class="team-name">Fintech Startup</div>
+                                <div class="team-meta">3 members • Finance • Hybrid</div>
+                            </div>
+                            <div class="team-actions">
+                                <button class="btn btn-sm btn-secondary" onclick="openModal('teamDetailsModal')">View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm" onclick="openModal('createTeamModal')">Create Team</button>
+                    </div>
+                </div>
+                
+                <!-- Events Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <div class="card-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </div>
+                            Upcoming Events
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="/api/placeholder/400/160" alt="AI Hackathon">
+                                <div class="event-date">May 12, 2025</div>
+                            </div>
+                            <div class="event-content">
+                                <h3 class="event-title">AI Hackathon 2025</h3>
+                                <p class="event-details">Build AI-powered solutions for real-world problems in 48 hours.</p>
+                                <div class="event-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    Online
+                                </div>
+                                <div class="event-actions">
+                                    <span class="event-type">Technology</span>
+                                    <button class="btn btn-sm" onclick="openModal('eventDetailsModal')">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-card">
+                            <div class="event-image">
+                                <img src="/api/placeholder/400/160" alt="Startup Networking">
+                                <div class="event-date">May 20, 2025</div>
+                            </div>
+                            <div class="event-content">
+                                <h3 class="event-title">Startup Networking Mixer</h3>
+                                <p class="event-details">Connect with fellow entrepreneurs and potential investors.</p>
+                                <div class="event-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    New York, NY
+                                </div>
+                                <div class="event-actions">
+                                    <span class="event-type">Networking</span>
+                                    <button class="btn btn-sm" onclick="openModal('eventDetailsModal')">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm" onclick="openModal('createEventModal')">Create Event</button>
+                    </div>
+                </div>
+                
+                <!-- Courses Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <div class="card-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                </svg>
+                            </div>
+                            Recommended Courses
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="/api/placeholder/400/160" alt="Startup Funding">
+                                <div class="resource-type course">COURSE</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-category">Finance</div>
+                                <h3 class="resource-title">Startup Funding 101</h3>
+                                <p class="resource-description">Learn how to secure investments for your startup with this comprehensive guide.</p>
+                                <div class="resource-meta">
+                                    <div class="resource-author">
+                                        <div class="author-avatar">
+                                            <img src="/api/placeholder/28/28" alt="Author">
+                                        </div>
+                                        <span>Jessica Mitchell</span>
+                                    </div>
+                                    <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">View Course</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-image">
+                                <img src="/api/placeholder/400/160" alt="Product Development">
+                                <div class="resource-type course">COURSE</div>
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-category">Development</div>
+                                <h3 class="resource-title">Product Development MVP</h3>
+                                <p class="resource-description">How to build and launch your minimum viable product efficiently.</p>
+                                <div class="resource-meta">
+                                    <div class="resource-author">
+                                        <div class="author-avatar">
+                                            <img src="/api/placeholder/28/28" alt="Author">
+                                        </div>
+                                        <span>Andrew Lee</span>
+                                    </div>
+                                    <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">View Course</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-sm" onclick="openModal('addCourseModal')">Add Course</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Learning Zone Section -->
+            <section id="learning-zone" style="margin-top: 3rem;">
+                <div class="section-header">
+                    <h2 class="section-title">Learning Zone</h2>
+                    <p class="section-subtitle">Expand your knowledge with courses, podcasts, and articles</p>
+                </div>
+                
+                <div class="search-filters">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="filter-label" for="resourceType">Resource Type</label>
+                            <select id="resourceType" class="filter-input">
+                                <option value="all">All Resources</option>
+                                <option value="courses">Courses</option>
+                                <option value="podcasts">Podcasts</option>
+                                <option value="articles">Articles</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label" for="resourceCategory">Category</label>
+                            <select id="resourceCategory" class="filter-input">
+                                <option value="">All Categories</option>
+                                <option value="tech">Technology</option>
+                                <option value="business">Business</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="design">Design</option>
+                                <option value="finance">Finance</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label" for="resourceSkill">Skill Level</label>
+                            <select id="resourceSkill" class="filter-input">
+                                <option value="">All Levels</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label" for="resourceSearch">Search</label>
+                            <input type="text" id="resourceSearch" class="filter-input" placeholder="Search resources...">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-secondary">Reset</button>
+                        <button class="btn">Search</button>
+                    </div>
+                    
+                    <div class="active-filters">
+                        <span style="font-size: 0.875rem; color: var(--gray); margin-right: 0.5rem;">Active filters:</span>
+                        <div class="active-filter">
+                            Programming
+                            <span class="filter-remove">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="active-filter">
+                            Beginner
+                            <span class="filter-remove">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <!-- Course Card -->
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/400/160" alt="Startup Funding">
+                            <div class="resource-type course">COURSE</div>
+                        </div>
+                        <div class="resource-content">
+                            <div class="resource-category">Finance</div>
+                            <h3 class="resource-title">Startup Funding 101</h3>
+                            <p class="resource-description">Learn how to secure investments for your startup with this comprehensive guide.</p>
+                            <div class="resource-meta">
+                                <div class="resource-author">
+                                    <div class="author-avatar">
+                                        <img src="/api/placeholder/28/28" alt="Author">
+                                    </div>
+                                    <span>Jessica Mitchell</span>
+                                </div>
+                                <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">View Course</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Podcast Card -->
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/400/160" alt="Startup Stories">
+                            <div class="resource-type podcast">PODCAST</div>
+                        </div>
+                        <div class="resource-content">
+                            <div class="resource-category">Entrepreneurship</div>
+                            <h3 class="resource-title">Startup Stories Podcast</h3>
+                            <p class="resource-description">Interviews with successful founders about their journey and lessons learned.</p>
+                            <div class="resource-meta">
+                                <div class="resource-author">
+                                    <div class="author-avatar">
+                                        <img src="/api/placeholder/28/28" alt="Host">
+                                    </div>
+                                    <span>David Kim</span>
+                                </div>
+                                <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">Listen Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article Card -->
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/400/160" alt="Scaling Startups">
+                            <div class="resource-type article">ARTICLE</div>
+                        </div>
+                        <div class="resource-content">
+                            <div class="resource-category">Growth</div>
+                            <h3 class="resource-title">10 Strategies for Scaling Your Startup</h3>
+                            <p class="resource-description">Proven methods to grow your business efficiently without sacrificing quality.</p>
+                            <div class="resource-meta">
+                                <div class="resource-author">
+                                    <div class="author-avatar">
+                                        <img src="/api/placeholder/28/28" alt="Author">
+                                    </div>
+                                    <span>Emma Roberts</span>
+                                </div>
+                                <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">Read Article</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card -->
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/400/160" alt="Marketing Essentials">
+                            <div class="resource-type course">COURSE</div>
+                        </div>
+                        <div class="resource-content">
+                            <div class="resource-category">Marketing</div>
+                            <h3 class="resource-title">Digital Marketing Essentials</h3>
+                            <p class="resource-description">Master SEO, social media, and content marketing strategies for business growth.</p>
+                            <div class="resource-meta">
+                                <div class="resource-author">
+                                    <div class="author-avatar">
+                                        <img src="/api/placeholder/28/28" alt="Author">
+                                    </div>
+                                    <span>Mark Thompson</span>
+                                </div>
+                                <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">View Course</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Podcast Card -->
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/400/160" alt="Tech Trends">
+                            <div class="resource-type podcast">PODCAST</div>
+                        </div>
+                        <div class="resource-content">
+                            <div class="resource-category">Technology</div>
+                            <h3 class="resource-title">Tech Trends Weekly</h3>
+                            <p class="resource-description">Stay updated with the latest in tech and innovation that affects your business.</p>
+                            <div class="resource-meta">
+                                <div class="resource-author">
+                                    <div class="author-avatar">
+                                        <img src="/api/placeholder/28/28" alt="Host">
+                                    </div>
+                                    <span>Sophia Lee</span>
+                                </div>
+                                <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">Listen Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article Card -->
+                    <div class="resource-card">
+                        <div class="resource-image">
+                            <img src="/api/placeholder/400/160" alt="Remote Teams">
+                            <div class="resource-type article">ARTICLE</div>
+                        </div>
+                        <div class="resource-content">
+                            <div class="resource-category">Management</div>
+                            <h3 class="resource-title">Building Effective Remote Teams</h3>
+                            <p class="resource-description">Best practices for managing distributed teams and maintaining productivity.</p>
+                            <div class="resource-meta">
+                                <div class="resource-author">
+                                    <div class="author-avatar">
+                                        <img src="/api/placeholder/28/28" alt="Author">
+                                    </div>
+                                    <span>James Wilson</span>
+                                </div>
+                                <button class="btn btn-sm" onclick="openModal('resourceDetailsModal')">Read Article</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn">Load More Resources</button>
+                </div>
+            </section>
+            
+            <!-- Team Finder Section -->
+            <section id="team-finder" style="margin-top: 3rem;">
+                <div class="section-header">
+                    <h2 class="section-title">Find Teammates</h2>
+                    <p class="section-subtitle">Connect with like-minded individuals for your next project</p>
+                </div>
+                
+                <div class="search-filters">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label class="filter-label" for="projectDirection">Project Direction</label>
+                            <select id="projectDirection" class="filter-input">
+                                <option value="">All Directions</option>
+                                <option value="ai">Artificial Intelligence</option>
+                                <option value="web">Web Development</option>
+                                <option value="mobile">Mobile Apps</option>
+                                <option value="fintech">FinTech</option>
+                                <option value="edtech">EdTech</option>
+                                <option value="health">Health Tech</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label" for="ageRange">Age Range</label>
+                            <select id="ageRange" class="filter-input">
+                                <option value="">All Ages</option>
+                                <option value="18-24">18-24</option>
+                                <option value="25-34">25-34</option>
+                                <option value="35-44">35-44</option>
+                                <option value="45+">45+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label" for="location">Location</label>
+                            <select id="location" class="filter-input">
+                                <option value="">All Locations</option>
+                                <option value="remote">Remote Only</option>
+                                <option value="us">United States</option>
+                                <option value="europe">Europe</option>
+                                <option value="asia">Asia</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label" for="skills">Skills</label>
+                            <select id="skills" class="filter-input">
+                                <option value="">All Skills</option>
+                                <option value="programming">Programming</option>
+                                <option value="design">Design</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="business">Business</option>
+                                <option value="data">Data Science</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <div class="filter-group" style="grid-column: span 3;">
+                            <label class="filter-label" for="searchKeywords">Search Keywords</label>
+                            <input type="text" id="searchKeywords" class="filter-input" placeholder="e.g. React, marketing, startup, remote...">
+                        </div>
+                        
+                        <div class="filter-group" style="display: flex; align-items: flex-end;">
+                            <div class="filter-actions" style="width: 100%; margin-bottom: 0;">
+                                <button class="btn btn-secondary">Reset</button>
+                                <button class="btn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="active-filters">
+                        <span style="font-size: 0.875rem; color: var(--gray); margin-right: 0.5rem;">Active filters:</span>
+                        <div class="active-filter">
+                            Remote Only
+                            <span class="filter-remove">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="active-filter">
+                            Programming
+                            <span class="filter-remove">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <!-- Teammate Card 1 -->
+                    <div class="teammate-card">
+                        <div class="teammate-header">
+                            <button class="favorite-btn" onclick="toggleFavorite(this)">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </button>
+                            <div class="teammate-avatar">
+                                <img src="/api/placeholder/100/100" alt="Alex Chen">
+                            </div>
+                            <h3 class="teammate-name">Alex Chen</h3>
+                            <p class="teammate-role">Full Stack Developer</p>
+                            <div class="teammate-badges">
+                                <span class="badge badge-primary">Remote</span>
+                                <span class="badge badge-success">Available</span>
+                            </div>
+                        </div>
+                        <div class="teammate-content">
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Skills</h4>
+                                <div class="skill-badges">
+                                    <span class="skill-badge">React</span>
+                                    <span class="skill-badge">Node.js</span>
+                                    <span class="skill-badge">MongoDB</span>
+                                    <span class="skill-badge">AI/ML</span>
+                                </div>
+                            </div>
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Looking for</h4>
+                                <p style="font-size: 0.875rem; color: var(--gray);">Startup opportunities in EdTech or HealthTech sectors.</p>
+                            </div>
+                            <div class="teammate-actions">
+                                <form action="#" method="POST" onsubmit="sendConnectionRequest(event)" style="flex: 1;">
+                                    <input type="hidden" name="user_id" value="user123">
+                                    <button type="submit" class="btn btn-sm" style="width: 100%;">Connect</button>
+                                </form>
+                                <button class="btn btn-sm btn-secondary" onclick="openModal('viewProfileModal')" style="flex: 1;">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teammate Card 2 -->
+                    <div class="teammate-card">
+                        <div class="teammate-header">
+                            <button class="favorite-btn" onclick="toggleFavorite(this)">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </button>
+                            <div class="teammate-avatar">
+                                <img src="/api/placeholder/100/100" alt="Sarah Johnson">
+                            </div>
+                            <h3 class="teammate-name">Sarah Johnson</h3>
+                            <p class="teammate-role">UI/UX Designer</p>
+                            <div class="teammate-badges">
+                                <span class="badge badge-primary">New York</span>
+                                <span class="badge badge-success">Available</span>
+                            </div>
+                        </div>
+                        <div class="teammate-content">
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Skills</h4>
+                                <div class="skill-badges">
+                                    <span class="skill-badge">Figma</span>
+                                    <span class="skill-badge">UI Design</span>
+                                    <span class="skill-badge">User Research</span>
+                                    <span class="skill-badge">Prototyping</span>
+                                </div>
+                            </div>
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Looking for</h4>
+                                <p style="font-size: 0.875rem; color: var(--gray);">Collaborations on innovative products with strong user-centered focus.</p>
+                            </div>
+                            <div class="teammate-actions">
+                                <form action="#" method="POST" onsubmit="sendConnectionRequest(event)" style="flex: 1;">
+                                    <input type="hidden" name="user_id" value="user456">
+                                    <button type="submit" class="btn btn-sm" style="width: 100%;">Connect</button>
+                                </form>
+                                <button class="btn btn-sm btn-secondary" onclick="openModal('viewProfileModal')" style="flex: 1;">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teammate Card 3 -->
+                    <div class="teammate-card">
+                        <div class="teammate-header">
+                            <button class="favorite-btn active" onclick="toggleFavorite(this)">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </button>
+                            <div class="teammate-avatar">
+                                <img src="/api/placeholder/100/100" alt="Michael Rodriguez">
+                            </div>
+                            <h3 class="teammate-name">Michael Rodriguez</h3>
+                            <p class="teammate-role">Software Developer</p>
+                            <div class="teammate-badges">
+                                <span class="badge badge-primary">Remote</span>
+                                <span class="badge badge-danger">Busy</span>
+                            </div>
+                        </div>
+                        <div class="teammate-content">
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Skills</h4>
+                                <div class="skill-badges">
+                                    <span class="skill-badge">Python</span>
+                                    <span class="skill-badge">Django</span>
+                                    <span class="skill-badge">Data Science</span>
+                                    <span class="skill-badge">ML</span>
+                                </div>
+                            </div>
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Looking for</h4>
+                                <p style="font-size: 0.875rem; color: var(--gray);">Data-driven projects with social impact. Available from June 2025.</p>
+                            </div>
+                            <div class="teammate-actions">
+                                <form action="#" method="POST" onsubmit="sendConnectionRequest(event)" style="flex: 1;">
+                                    <input type="hidden" name="user_id" value="user789">
+                                    <button type="submit" class="btn btn-sm" style="width: 100%;">Connect</button>
+                                </form>
+                                <button class="btn btn-sm btn-secondary" onclick="openModal('viewProfileModal')" style="flex: 1;">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teammate Card 4 -->
+                    <div class="teammate-card">
+                        <div class="teammate-header">
+                            <button class="favorite-btn" onclick="toggleFavorite(this)">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </button>
+                            <div class="teammate-avatar">
+                                <img src="/api/placeholder/100/100" alt="Emily Wang">
+                            </div>
+                            <h3 class="teammate-name">Emily Wang</h3>
+                            <p class="teammate-role">Blockchain Developer</p>
+                            <div class="teammate-badges">
+                                <span class="badge badge-primary">London</span>
+                                <span class="badge badge-success">Available</span>
+                            </div>
+                        </div>
+                        <div class="teammate-content">
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Skills</h4>
+                                <div class="skill-badges">
+                                    <span class="skill-badge">Solidity</span>
+                                    <span class="skill-badge">Ethereum</span>
+                                    <span class="skill-badge">Smart Contracts</span>
+                                    <span class="skill-badge">Web3</span>
+                                </div>
+                            </div>
+                            <div class="teammate-section">
+                                <h4 class="teammate-section-title">Looking for</h4>
+                                <p style="font-size: 0.875rem; color: var(--gray);">Blockchain projects in finance or supply chain management.</p>
+                            </div>
+                            <div class="teammate-actions">
+                                <form action="#" method="POST" onsubmit="sendConnectionRequest(event)" style="flex: 1;">
+                                    <input type="hidden" name="user_id" value="user012">
+                                    <button type="submit" class="btn btn-sm" style="width: 100%;">Connect</button>
+                                </form>
+                                <button class="btn btn-sm btn-secondary" onclick="openModal('viewProfileModal')" style="flex: 1;">View Profile</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn">Load More Teammates</button>
+                </div>
+            </section>
+            
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <div class="container">
+                    <div class="section-header" style="text-align: center;">
+                        <h2 class="section-title">Frequently Asked Questions</h2>
+                        <p class="section-subtitle">Find answers to common questions about using netXwork</p>
+                    </div>
+                    
+                    <div style="max-width: 800px; margin: 0 auto;">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>How do I find the right teammates for my project?</h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Use our Teammates Finder feature to search for potential team members based on skills, location, and project interests. You can filter results to find the perfect match for your project. Once you find someone interesting, send them a connection request with details about your project and what role you're looking to fill.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>How do I create and promote an event?</h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="faq-answer">
+                                <p>To create an event, go to the Events section and click on "Create Event." Fill in all the required details about your event, including title, description, date, time, location (online or physical), and any registration links. Once submitted, your event will be reviewed by our moderators and published upon approval. You can promote your event by sharing it with your connections on netXwork or through social media.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>Can I contribute learning resources to the platform?</h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We encourage community contributions to our Learning Zone. You can add courses, podcasts, articles, and other educational content by clicking "Add Course" or "Add Resource" buttons in the Learning Zone section. All submitted content goes through a moderation process to ensure quality and relevance before being published on the platform.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>Is netXwork completely free to use?</h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="faq-answer">
+                                <p>netXwork offers a free basic membership that gives you access to most platform features. We also have premium plans with additional benefits like advanced search filters, unlimited connection requests, featured profile placement, and access to exclusive events and resources. You can view our pricing plans in the Account Settings section.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <p style="color: var(--gray); margin-bottom: 1rem;">Didn't find what you're looking for?</p>
+                        <a href="#" class="btn btn-secondary">Contact Support</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- MODALS -->
+    
+    <!-- Team Details Modal -->
+    <div class="modal-overlay" id="teamDetailsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">AI Research Group</h2>
+                <p class="modal-subtitle">Working on cutting-edge AI applications</p>
+                <button class="modal-close" onclick="closeModal('teamDetailsModal')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <span class="badge badge-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">AI/ML</span>
+                    <span class="badge" style="background-color: rgba(0, 102, 255, 0.1); color: var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem;">5 members</span>
+                    <span class="badge" style="background-color: rgba(0, 102, 255, 0.1); color: var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem;">Remote</span>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Description</h3>
+                    <p style="line-height: 1.7; color: var(--gray);">
+                        Our team is focused on developing practical AI solutions for real-world problems. We're currently working on a project to improve education through personalized learning algorithms and natural language processing. We combine academic research with practical implementation to create solutions that are both innovative and useful.
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Required Skills</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span class="skill-badge">Machine Learning</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">TensorFlow</span>
+                        <span class="skill-badge">NLP</span>
+                        <span class="skill-badge">Data Analysis</span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Team Members</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--gray-light); overflow: hidden;">
+                                <img src="/api/placeholder/40/40" alt="Team Member">
+                            </div>
+                            <div>
+                                <div style="font-weight: 600;">John Doe</div>
+                                <div style="font-size: 0.875rem; color: var(--gray);">Team Leader</div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--gray-light); overflow: hidden;">
+                                <img src="/api/placeholder/40/40" alt="Team Member">
+                            </div>
+                            <div>
+                                <div style="font-weight: 600;">Sarah Johnson</div>
+                                <div style="font-size: 0.875rem; color: var(--gray);">ML Engineer</div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--gray-light); overflow: hidden;">
+                                <img src="/api/placeholder/40/40" alt="Team Member">
+                            </div>
+                            <div>
+                                <div style="font-weight: 600;">Alex Chen</div>
+                                <div style="font-size: 0.875rem; color: var(--gray);">Data Scientist</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Current Projects</h3>
+                    <ul style="list-style-position: inside; color: var(--gray);">
+                        <li style="margin-bottom: 0.5rem;">AI-powered educational tool for personalized learning paths</li>
+                        <li style="margin-bottom: 0.5rem;">NLP system for automated essay grading and feedback</li>
+                        <li>Machine learning model for student performance prediction</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('teamDetailsModal')">Cancel</button>
+                <button class="btn" onclick="leaveTeamRequest()">Leave Request</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Create Team Modal -->
+    <div class="modal-overlay" id="createTeamModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Create a Team</h2>
+                <p class="modal-subtitle">Connect with like-minded individuals and form a team</p>
+                <button class="modal-close" onclick="closeModal('createTeamModal')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="createTeamForm" onsubmit="submitForm(event, 'createTeamForm')">
+                    <div class="form-group">
+                        <label class="form-label" for="teamName">Team Name*</label>
+                        <input type="text" id="teamName" name="teamName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="teamDescription">Description*</label>
+                        <textarea id="teamDescription" name="teamDescription" class="form-control" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="teamCategory">Category*</label>
+                            <select id="teamCategory" name="teamCategory" class="form-control" required>
+                                <option value="">Select a category</option>
+                                <option value="ai">Artificial Intelligence</option>
+                                <option value="web">Web Development</option>
+                                <option value="mobile">Mobile Apps</option>
+                                <option value="fintech">FinTech</option>
+                                <option value="edtech">EdTech</option>
+                                <option value="health">Health Tech</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="teamLocation">Location</label>
+                            <select id="teamLocation" name="teamLocation" class="form-control">
+                                <option value="remote">Remote Only</option>
+                                <option value="hybrid">Hybrid</option>
+                                <option value="local">Local</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="teamSkills">Required Skills (comma separated)</label>
+                        <input type="text" id="teamSkills" name="teamSkills" class="form-control" placeholder="e.g. React, Node.js, UI/UX, Marketing">
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="teamAgreement" name="teamAgreement" required>
+                        <label for="teamAgreement">I agree to the Team Creation Guidelines and understand that this request will be reviewed by moderators.</label>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('createTeamModal')">Cancel</button>
+                <button class="btn" onclick="document.getElementById('createTeamForm').requestSubmit()">Create Team</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Event Details Modal -->
+    <div class="modal-overlay" id="eventDetailsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('eventDetailsModal')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-cover">
+                    <img src="/api/placeholder/700/200" alt="AI Hackathon">
+                    <div class="modal-cover-overlay">
+                        <div class="modal-cover-title">AI Hackathon 2025</div>
+                        <div class="modal-cover-subtitle">May 12-13, 2025</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <span class="badge badge-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Technology</span>
+                    <span class="badge" style="background-color: rgba(0, 102, 255, 0.1); color: var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.25rem;">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        May 12-13, 2025
+                    </span>
+                    <span class="badge" style="background-color: rgba(0, 102, 255, 0.1); color: var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.25rem;">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Online
+                    </span>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Description</h3>
+                    <p style="line-height: 1.7; color: var(--gray);">
+                        Join our 48-hour hackathon focused on building AI-powered solutions for real-world problems. Work with like-minded developers, data scientists, and designers to create innovative applications using machine learning, natural language processing, and computer vision.
+                    </p>
+                    <p style="line-height: 1.7; color: var(--gray); margin-top: 1rem;">
+                        Prizes include cash awards, mentorship opportunities, and potential investment for the most promising projects. No prior AI experience is required—we welcome participants of all skill levels!
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Schedule</h3>
+                    <div style="border-left: 2px solid var(--gray-light); padding-left: 1.5rem;">
+                        <div style="margin-bottom: 1.5rem; position: relative;">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary); position: absolute; left: -1.56rem; top: 0.5rem;"></div>
+                            <div style="font-weight: 600;">Day 1: May 12, 10:00 AM - 12:00 PM</div>
+                            <div style="color: var(--gray);">Opening ceremony and team formation</div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; position: relative;">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary); position: absolute; left: -1.56rem; top: 0.5rem;"></div>
+                            <div style="font-weight: 600;">Day 1: May 12, 12:00 PM</div>
+                            <div style="color: var(--gray);">Hacking begins</div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; position: relative;">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary); position: absolute; left: -1.56rem; top: 0.5rem;"></div>
+                            <div style="font-weight: 600;">Day 2: May 13, 12:00 PM</div>
+                            <div style="color: var(--gray);">Hacking ends</div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background-color: var(--primary); position: absolute; left: -1.56rem; top: 0.5rem;"></div>
+                            <div style="font-weight: 600;">Day 2: May 13, 2:00 PM - 5:00 PM</div>
+                            <div style="color: var(--gray);">Project presentations and awards ceremony</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Organizer</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background-color: var(--gray-light); overflow: hidden;">
+                            <img src="/api/placeholder/48/48" alt="Organizer">
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Tech Innovation Hub</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">Event Organizer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('eventDetailsModal')">Close</button>
+                <a href="https://example.com/register" target="_blank" class="btn">Register Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Create Event Modal -->
+    <div class="modal-overlay" id="createEventModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Create an Event</h2>
+                <p class="modal-subtitle">Host workshops, hackathons, or networking events</p>
+                <button class="modal-close" onclick="closeModal('createEventModal')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="createEventForm" onsubmit="submitForm(event, 'createEventForm')">
+                    <div class="form-group">
+                        <label class="form-label" for="eventName">Event Name*</label>
+                        <input type="text" id="eventName" name="eventName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="eventDescription">Description*</label>
+                        <textarea id="eventDescription" name="eventDescription" class="form-control" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="eventDate">Date*</label>
+                            <input type="date" id="eventDate" name="eventDate" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="eventTime">Time*</label>
+                            <input type="time" id="eventTime" name="eventTime" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="eventFormat">Format*</label>
+                            <select id="eventFormat" name="eventFormat" class="form-control" required>
+                                <option value="online">Online</option>
+                                <option value="in-person">In-Person</option>
+                                <option value="hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="eventLocation">Location</label>
+                            <input type="text" id="eventLocation" name="eventLocation" class="form-control" placeholder="e.g. City, Country or Online Platform">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="eventCategory">Category*</label>
+                        <select id="eventCategory" name="eventCategory" class="form-control" required>
+                            <option value="">Select a category</option>
+                            <option value="tech">Technology</option>
+                            <option value="business">Business</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="design">Design</option>
+                            <option value="networking">Networking</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="eventImage">Event Image</label>
+                        <input type="file" id="eventImage" name="eventImage" class="form-control" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="eventLink">Registration Link</label>
+                        <input type="url" id="eventLink" name="eventLink" class="form-control" placeholder="e.g. https://example.com/register">
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" id="eventAgreement" name="eventAgreement" required>
+                        <label for="eventAgreement">I agree to the Event Guidelines and understand that this event will be reviewed by moderators before being published.</label>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('createEventModal')">Cancel</button>
+                <button class="btn" onclick="document.getElementById('createEventForm').requestSubmit()">Create Event</button>
+            </div>
+        </div>
+    </div>
+    <div class="ai-mentor-button" id="aiMentorBtn">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="ai-mentor-modal" id="aiMentorModal">
+        <div class="modal-header">
+            <h3><i class="fas fa-robot"></i> AI Mentor</h3>
+            <div class="close-btn" id="closeModalBtn">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        Hello! I'm your AI mentor. How can I help you today?
+                    </div>
+                </div>
+                <div class="typing-indicator" id="typingIndicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+                <div class="send-btn" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <!-- Resource Details Modal -->
+    <div class="modal-overlay" id="resourceDetailsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('resourceDetailsModal')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-cover">
+                    <img src="/api/placeholder/700/200" alt="Startup Funding">
+                    <div class="modal-cover-overlay">
+                        <div class="modal-cover-title">Startup Funding 101</div>
+                        <div class="modal-cover-subtitle">Finance Course</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                    <span class="badge badge-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Finance</span>
+                    <span class="badge" style="background-color: rgba(0, 102, 255, 0.1); color: var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.25rem;">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        250 students
+                    </span>
+                    <span class="badge" style="background-color: rgba(0, 102, 255, 0.1); color: var(--primary); padding: 0.5rem 1rem; font-size: 0.9rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.25rem;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        8 hours
+                    </span>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Description</h3>
+                    <p style="line-height: 1.7; color: var(--gray);">
+                        Learn how to secure investments for your startup in this comprehensive course. We cover everything from understanding different funding options to creating compelling pitch decks and navigating investor relationships.
+                    </p>
+                    <p style="line-height: 1.7; color: var(--gray); margin-top: 1rem;">
+                        Perfect for founders, entrepreneurs, and anyone looking to understand the startup funding ecosystem.
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">What You'll Learn</h3>
+                    <ul style="color: var(--gray); line-height: 1.7; padding-left: 1.25rem;">
+                        <li style="margin-bottom: 0.5rem;">Different types of startup funding (bootstrapping, angel investors, VCs, etc.)</li>
+                        <li style="margin-bottom: 0.5rem;">How to build financial projections that impress investors</li>
+                        <li style="margin-bottom: 0.5rem;">Crafting a compelling pitch deck and executive summary</li>
+                        <li style="margin-bottom: 0.5rem;">Strategies for networking with potential investors</li>
+                        <li style="margin-bottom: 0.5rem;">Term sheet basics and negotiation tactics</li>
+                        <li>Real-world case studies of successful funding rounds</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem;">Instructor</h3>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background-color: var(--gray-light); overflow: hidden;">
+                            <img src="/api/placeholder/48/48" alt="Instructor">
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Jessica Mitchell</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">Venture Capitalist & Former Startup Founder</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('resourceDetailsModal')">Close</button>
+                <a href="https://example.com/course" target="_blank" class="btn">Enroll Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Course Modal -->
+    <div class="modal-overlay" id="addCourseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Add a Course</h2>
+                <p class="modal-subtitle">Share educational content with the community</p>
+                <button class="modal-close" onclick="closeModal('addCourseModal')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="addCourseForm" onsubmit="submitForm(event, 'addCourseForm')">
+                    <div class="form-group">
+                        <label class="form-label" for="courseName">Course Title*</label>
+                        <input type="text" id="courseName" name="courseName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="courseDescription">Description*</label>
+                        <textarea id="courseDescription" name="courseDescription" class="form-control" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="courseCategory">Category*</label>
+                            <select id="courseCategory" name="courseCategory" class="form-control" required>
+                                <option value="">Select a category</option>
+                                <option value="development">Development</option>
+                                <option value="business">Business</option>
+                                <option value="design">Design</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="finance">Finance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="courseLevel">Level*</label>
+                            <select id="courseLevel" name="courseLevel" class="form-control" required>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                                <option value="all">All Levels</option>
+                            </select>
+                        </div>
+                        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const aiMentorBtn = document.getElementById('aiMentorBtn');
+            const aiMentorModal = document.getElementById('aiMentorModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const chatInput = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendBtn');
+            const chatMessages = document.getElementById('chatMessages');
+            const typingIndicator = document.getElementById('typingIndicator');
+
+            // Toggle modal
+            aiMentorBtn.addEventListener('click', function() {
+                aiMentorModal.classList.toggle('active');
+                if (aiMentorModal.classList.contains('active')) {
+                    chatInput.focus();
+                }
+            });
+
+            // Close modal
+            closeModalBtn.addEventListener('click', function() {
+                aiMentorModal.classList.remove('active');
+            });
+
+            // Send message function
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message === '') return;
+
+                // Add user message
+                addMessage('user', message);
+                chatInput.value = '';
+
+                // Show typing indicator
+                typingIndicator.style.display = 'block';
+                
+                // Simulate AI response after a delay
+                setTimeout(function() {
+                    typingIndicator.style.display = 'none';
+                    
+                    // Generate AI response based on user message
+                    let aiResponse = getAIResponse(message);
+                    addMessage('ai', aiResponse);
+                    
+                    // Scroll to the bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+            }
+
+            // Add message to chat
+            function addMessage(type, text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', type);
+
+                const avatarDiv = document.createElement('div');
+                avatarDiv.classList.add('message-avatar');
+                
+                const icon = document.createElement('i');
+                icon.classList.add('fas', type === 'ai' ? 'fa-robot' : 'fa-user');
+                avatarDiv.appendChild(icon);
+
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('message-content');
+                contentDiv.textContent = text;
+
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(contentDiv);
+
+                // Insert before typing indicator
+                chatMessages.insertBefore(messageDiv, typingIndicator);
+                
+                // Scroll to the bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Simple AI response generator
+            function getAIResponse(message) {
+                message = message.toLowerCase();
+                
+                if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+                    return "Hello! How can I assist you today?";
+                } else if (message.includes('help') || message.includes('assist')) {
+                    return "I'm here to help! What specific topic do you need assistance with?";
+                } else if (message.includes('thank')) {
+                    return "You're welcome! Is there anything else you'd like to know?";
+                } else if (message.includes('bye') || message.includes('goodbye')) {
+                    return "Goodbye! Feel free to come back if you have more questions.";
+                } else if (message.includes('learn') || message.includes('study')) {
+                    return "Learning is exciting! What subject are you interested in? I can provide resources and tips.";
+                } else if (message.includes('how are you')) {
+                    return "I'm functioning well, thank you for asking! How can I assist you today?";
+                } else if (message.includes('name')) {
+                    return "I'm your AI Mentor, designed to help you with your questions and learning journey.";
+                } else {
+                    return "That's an interesting point. Could you tell me more about what you're looking for?";
+                }
+            }
+
+            // Send message on button click
+            sendBtn.addEventListener('click', sendMessage);
+
+            // Send message on Enter key
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Close modal when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!aiMentorModal.contains(e.target) && !aiMentorBtn.contains(e.target) && aiMentorModal.classList.contains('active')) {
+                    aiMentorModal.classList.remove('active');
+                }
+            });
+        });
+                        </script>>
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0066ff">
+    <meta name="description" content="netXwork Dashboard - Manage your profile, teams, events, and courses">
+    <title>netXwork - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0055e0;
+            --secondary: #172b4d;
+            --accent: #ffc107;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --sm: #186eed;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .ai-mentor-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .ai-mentor-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .ai-mentor-button i {
+            font-size: 24px;
+        }
+
+        .ai-mentor-modal {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 450px;
+            height: 650px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            transform: translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .ai-mentor-modal.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-header {
+            padding: 15px 20px;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .modal-header .close-btn {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .message.ai {
+            flex-direction: row;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .message.ai .message-avatar {
+            background-color: var(--accent);
+            color: var(--secondary);
+            transform: translate(-0.9em, -0.9em);
+        }
+
+        .message.user .message-avatar {
+            background-color: var(--secondary);
+            color: white;
+            margin-right: 0;
+            margin-left: 10px;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message.ai .message-content {
+            background-color: var(--light);
+            color: var(--secondary);
+            border-top-left-radius: 4px;
+        }
+
+        .message.user .message-content {
+            background-color: var(--primary);
+            color: white;
+            border-top-right-radius: 4px;
+        }
+
+        .modal-footer {
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input-container {
+            display: flex;
+            align-items: center;
+            background-color: var(--light);
+            border-radius: 30px;
+            padding: 5px 15px;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 14px;
+            background-color: transparent;
+        }
+
+        .send-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .send-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Animation for AI thinking */
+        .typing-indicator {
+            display: none;
+            padding: 10px 15px;
+            background-color: var(--light);
+            border-radius: 18px;
+            margin-left: 46px;
+            width: fit-content;
+            margin-bottom: 15px;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            float: left;
+            margin: 0 1px;
+            background-color: #9E9EA1;
+            display: block;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        .typing-indicator span:nth-of-type(1) {
+            animation: typing 1s infinite 0.0s;
+        }
+        .typing-indicator span:nth-of-type(2) {
+            animation: typing 1s infinite 0.25s;
+        }
+        .typing-indicator span:nth-of-type(3) {
+            animation: typing 1s infinite 0.5s;
+        }
+
+        @keyframes typing {
+            0% {
+                transform: translateY(0px);
+            }
+            25% {
+                transform: translateY(-5px);
+            }
+            50% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 500px) {
+            .ai-mentor-modal {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 90px;
+            }
+            
+            .ai-mentor-button {
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 102, 255, 0.1);
+        }
+
+        .btn-success {
+            background-color: var(--success);
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.875rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .notifications {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--danger);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .notification-panel {
+            position: absolute;
+            top: 100%;
+            right: -100px;
+            width: 320px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            margin-top: 1rem;
+            z-index: 1000;
+            display: none;
+        }
+
+        .notifications:hover .notification-panel {
+            display: block;
+        }
+
+        .notification-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .notification-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .notification-item:hover {
+            background-color: var(--light);
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 102, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .notification-text {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .notification-time {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        .notification-footer {
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .user-profile {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 220px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            margin-top: 1rem;
+            z-index: 1000;
+            display: none;
+        }
+
+        .user-profile:hover .profile-menu {
+            display: block;
+        }
+
+        .profile-menu-item {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .profile-menu-item:hover {
+            background-color: var(--light);
+        }
+
+        /* Dashboard */
+        .dashboard {
+            padding: 2rem 0;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background-color: rgba(0, 102, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-footer {
+            padding: 1rem 1.25rem;
+            border-top: 1px solid var(--gray-light);
+            text-align: center;
+        }
+
+        /* Stat Cards */
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: rgba(0, 102, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        /* Team Cards */
+        .team-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: var(--light);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            background-color: rgba(0, 102, 255, 0.05);
+        }
+
+        .team-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .team-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .team-info {
+            flex: 1;
+        }
+
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-meta {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .team-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Event Cards */
+        .event-card {
+            border-radius: var(--border-radius);
+            background-color: white;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            margin-bottom: 1.25rem;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .event-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .event-image {
+            height: 160px;
+            background-color: var(--gray-light);
+            position: relative;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .event-date {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .event-content {
+            padding: 1.25rem;
+        }
+
+        .event-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-details {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .event-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .event-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-type {
+            background-color: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Resource Cards */
+        .resource-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            margin-bottom: 1.25rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .resource-image {
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .resource-type {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .resource-type.course {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .resource-type.podcast {
+            background-color: #9c27b0;
+            color: white;
+        }
+
+        .resource-type.article {
+            background-color: #2196f3;
+            color: white;
+        }
+
+        .resource-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-category {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-description {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--gray-light);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .resource-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .author-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            overflow: hidden;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Teammate Cards */
+        .teammate-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .teammate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .teammate-header {
+            position: relative;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            background-color: var(--light);
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-light);
+        }
+
+        .favorite-btn.active {
+            color: var(--warning);
+        }
+
+        .teammate-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 4px solid white;
+        }
+
+        .teammate-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .teammate-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .teammate-role {
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .teammate-badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .badge-primary {
+            background-color: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-success {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: var(--warning);
+        }
+
+        .badge-danger {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: var(--danger);
+        }
+
+        .teammate-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .teammate-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .teammate-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .teammate-section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--secondary);
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-badge {
+            background-color: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .teammate-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        /* Search & Filters */
+        .search-filters {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-group {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .filter-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+
+        .filter-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .active-filter {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background-color: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .filter-remove {
+            cursor: pointer;
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            position: relative;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .modal-subtitle {
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        /* Form Controls */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-check input {
+            margin-top: 0.3rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--gray-light);
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .tab.active {
+            color: var(--primary);
+        }
+
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tab.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 3rem;
+            padding: 3rem 0;
+            background-color: var(--light);
+            border-radius: 20px;
+        }
+
+        .faq-item {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: var(--gray);
+            line-height: 1.7;
+            display: none;
+        }

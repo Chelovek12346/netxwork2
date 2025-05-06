@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0066ff">
+    <meta name="description" content="netXwork Dashboard - Connect, Collaborate, Create">
+    <title>netXwork - Filter Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0055e0;
+            --secondary: #172b4d;
+            --accent: #ffc107;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 102, 255, 0.1);
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 0.85rem;
+        }
+        
+        /* Header */
+        .dashboard-header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-right: 0.75rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            overflow: hidden;
+            margin-right: 0.75rem;
+        }
+        
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .notification-indicator {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 18px;
+            height: 18px;
+            background-color: var(--danger);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 2rem;
+        }
+        
+        /* Filter Tags */
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .filter-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .filter-tag-close {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            margin-left: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .filter-tag-close:hover {
+            color: var(--primary-dark);
+        }
+        
+        .filter-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-info {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .filter-highlight {
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        /* Sort Dropdown */
+        .sort-dropdown {
+            position: relative;
+        }
+        
+        .sort-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius-sm);
+            background-color: white;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        
+        .sort-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 200px;
+            background-color: white;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow);
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            display: none;
+            z-index: 10;
+        }
+        
+        .sort-dropdown-menu.active {
+            display: block;
+        }
+        
+        .sort-option {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .sort-option:hover {
+            background-color: var(--light);
+        }
+        
+        .sort-option.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Results Section */
+        .results-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .section-action {
+            font-weight: 500;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .section-action:hover {
+            text-decoration: underline;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Card Styles */
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            margin-bottom: 1rem;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 0.25rem;
+        }
+        
+        .card-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .card-meta {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        .meta-icon {
+            margin-right: 0.5rem;
+        }
+        
+        .card-members {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .card-member {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            margin-right: -8px;
+            border: 2px solid white;
+            overflow: hidden;
+        }
+        
+        .card-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .more-members {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        /* Profile Card */
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-title {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .profile-skills {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .pagination-list {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+        
+        .pagination-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--gray-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .pagination-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .pagination-item.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .pagination-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            width: 90%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transform: translateY(-20px);
+            transition: var(--transition);
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            color: var(--dark);
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .results-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .filter-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .filter-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .header-container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .dashboard-header {
+                padding: 1rem;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .card-footer .btn {
+                width: 100%;
+            }
+            
+            .pagination-item {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">nX</div>
+                <div class="logo-text">netXwork</div>
+            </a>
+            
+            <div class="header-actions">
+                <div class="notification-bell" id="notificationToggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <div class="notification-indicator">3</div>
+                </div>
+                
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <img src="/api/placeholder/40/40" alt="User avatar">
+                    </div>
+                    <div class="user-name">Alex Johnson</div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content container">
+        <!-- Applied Filters -->
+        <div class="filter-tags">
+            <div class="filter-tag">
+                Project: Technology
+                <button class="filter-tag-close">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="filter-tag">
+                Age: 25-34
+                <button class="filter-tag-close">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="filter-tag">
+                Skills: UX Design
+                <button class="filter-tag-close">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="filter-tag">
+                Location: Remote
+                <button class="filter-tag-close">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Filter Actions -->
+        <div class="filter-actions">
+            <div class="filter-info">
+                Showing <span class="filter-highlight">16</span> results matching your criteria
+            </div>
+            
+            <div class="filter-controls">
+                <button class="btn btn-secondary">Modify Filters</button>
+                
+                <div class="sort-dropdown">
+                    <button class="sort-button" id="sortButton">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 5h10"></path>
+                            <path d="M11 9h7"></path>
+                            <path d="M11 13h4"></path>
+                            <path d="M3 17l3 3 3-3"></path>
+                            <path d="M6 5v15"></path>
+                        </svg>
+                        Sort by: Relevance
+                    </button>
+                    <div class="sort-dropdown-menu" id="sortMenu">
+                        <div class="sort-option active">Relevance</div>
+                        <div class="sort-option">Most Recent</div>
+                        <div class="sort-option">Highest Rated</div>
+                        <div class="sort-option">Experience: High to Low</div>
+                        <div class="sort-option">Experience: Low to High</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Section - People -->
+        <section class="results-section">
+            <div class="section-header">
+                <h2 class="section-title">People Matching Your Criteria</h2>
+                <a href="#" class="section-action">View All</a>
+            </div>
+            
+            <div class="results-grid">
+                <div class="card profile-card">
+                    <div class="profile-avatar">
+                        <img src="/api/placeholder/80/80" alt="David Kim">
+                    </div>
+                    <h3 class="profile-name">David Kim</h3>
+                    <div class="profile-title">UX Researcher</div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">10</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4.6</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4+</div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-tags profile-skills">
+                        <span class="tag">User Research</span>
+                        <span class="tag">Usability Testing</span>
+                        <span class="tag">UX Design</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary view-profile-btn">View Profile</button>
+                        <button class="btn btn-sm btn-primary connect-btn">Connect</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Results Section - Teams -->
+        <section class="results-section">
+            <div class="section-header">
+                <h2 class="section-title">Teams Looking for UX Designers</h2>
+                <a href="#" class="section-action">View All</a>
+            </div>
+            
+            <div class="results-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Tech Innovators</h3>
+                        <div class="card-subtitle">Founded Jan 2025 • 5 Members</div>
+                    </div>
+                    
+                    <p class="card-description">A team focused on developing innovative solutions for environmental challenges using IoT and AI. Currently seeking UI/UX designers for our mobile app.</p>
+                    
+                    <div class="card-tags">
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Mobile</span>
+                        <span class="tag">Environment</span>
+                        <span class="tag">Remote</span>
+                    </div>
+                    
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Remote / San Francisco
+                        </div>
+                    </div>
+                    
+                    <div class="card-members">
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="more-members">+2</div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary" id="viewTeamDetails">View Details</button>
+                        <button class="btn btn-sm btn-primary request-btn">Leave Request</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Health Hackers</h3>
+                        <div class="card-subtitle">Founded Feb 2025 • All Levels Welcome</div>
+                    </div>
+                    
+                    <p class="card-description">Creating affordable health monitoring solutions for elderly care using wearable technology. Seeking UX designers with healthcare experience.</p>
+                    
+                    <div class="card-tags">
+                        <span class="tag">Healthcare</span>
+                        <span class="tag">UX</span>
+                        <span class="tag">Wearables</span>
+                        <span class="tag">Mobile</span>
+                    </div>
+                    
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Boston / Remote
+                        </div>
+                    </div>
+                    
+                    <div class="card-members">
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="more-members">+2</div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary">View Details</button>
+                        <button class="btn btn-sm btn-primary request-btn">Leave Request</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">FinTech Pioneers</h3>
+                        <div class="card-subtitle">Founded Mar 2025 • 3 Members</div>
+                    </div>
+                    
+                    <p class="card-description">Building next-gen financial solutions for underserved markets. Looking for UX/UI designers with experience in financial apps and dashboards.</p>
+                    
+                    <div class="card-tags">
+                        <span class="tag">FinTech</span>
+                        <span class="tag">UX/UI</span>
+                        <span class="tag">Dashboard Design</span>
+                    </div>
+                    
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            London / Remote
+                        </div>
+                    </div>
+                    
+                    <div class="card-members">
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary">View Details</button>
+                        <button class="btn btn-sm btn-primary request-btn">Leave Request</button>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">EdTech Innovators</h3>
+                        <div class="card-subtitle">Founded Apr 2025 • 4 Members</div>
+                    </div>
+                    
+                    <p class="card-description">Developing an adaptive learning platform that personalizes education for K-12 students. Looking for UX designers with expertise in learning experiences.</p>
+                    
+                    <div class="card-tags">
+                        <span class="tag">Education</span>
+                        <span class="tag">UX Design</span>
+                        <span class="tag">Learning Experience</span>
+                    </div>
+                    
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            New York / Remote
+                        </div>
+                    </div>
+                    
+                    <div class="card-members">
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="card-member">
+                            <img src="/api/placeholder/32/32" alt="Team member">
+                        </div>
+                        <div class="more-members">+1</div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary">View Details</button>
+                        <button class="btn btn-sm btn-primary request-btn">Leave Request</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            <ul class="pagination-list">
+                <li class="pagination-item disabled">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </li>
+                <li class="pagination-item active">1</li>
+                <li class="pagination-item">2</li>
+                <li class="pagination-item">3</li>
+                <li class="pagination-item">...</li>
+                <li class="pagination-item">8</li>
+                <li class="pagination-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Team Details Modal -->
+    <div class="modal-overlay" id="teamDetailsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Tech Innovators</h3>
+                <button class="modal-close" id="teamDetailsClose">×</button>
+            </div>
+            <div class="modal-body">
+                <h4>About the Team</h4>
+                <p>Tech Innovators is a team of passionate engineers, designers, and environmentalists working together to develop innovative solutions for environmental challenges using IoT and AI technologies.</p>
+                
+                <p>Our current project focuses on developing a smart water management system that helps communities monitor and optimize water usage, detect leaks, and reduce waste.</p>
+                
+                <h4>What We're Looking For</h4>
+                <p>We are seeking a talented UI/UX designer to join our team. The ideal candidate would have:</p>
+                <ul>
+                    <li>2+ years of experience in UI/UX design</li>
+                    <li>Proficiency in Figma or similar design tools</li>
+                    <li>Experience designing mobile applications</li>
+                    <li>Knowledge of user research and usability testing</li>
+                    <li>Interest in environmental sustainability</li>
+                </ul>
+                
+                <h4>Team Members</h4>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin: 0 auto 0.5rem;">
+                            <img src="/api/placeholder/60/60" alt="Team member">
+                        </div>
+                        <div style="font-weight: 600;">John Lee</div>
+                        <div style="font-size: 0.85rem; color: var(--gray);">Team Lead</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin: 0 auto 0.5rem;">
+                            <img src="/api/placeholder/60/60" alt="Team member">
+                        </div>
+                        <div style="font-weight: 600;">Maria Garcia</div>
+                        <div style="font-size: 0.85rem; color: var(--gray);">IoT Engineer</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin: 0 auto 0.5rem;">
+                            <img src="/api/placeholder/60/60" alt="Team member">
+                        </div>
+                        <div style="font-weight: 600;">Alex Chen</div>
+                        <div style="font-size: 0.85rem; color: var(--gray);">AI Developer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="teamDetailsClose2">Close</button>
+                <button class="btn btn-primary request-btn">Leave Request</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // DOM Elements
+        const notificationToggle = document.getElementById('notificationToggle');
+        const sortButton = document.getElementById('sortButton');
+        const sortMenu = document.getElementById('sortMenu');
+        const sortOptions = document.querySelectorAll('.sort-option');
+        const connectBtns = document.querySelectorAll('.connect-btn');
+        const requestBtns = document.querySelectorAll('.request-btn');
+        const viewProfileBtns = document.querySelectorAll('.view-profile-btn');
+        
+        // Team Details Modal
+        const viewTeamDetails = document.getElementById('viewTeamDetails');
+        const teamDetailsModal = document.getElementById('teamDetailsModal');
+        const teamDetailsClose = document.getElementById('teamDetailsClose');
+        const teamDetailsClose2 = document.getElementById('teamDetailsClose2');
+        
+        // Toggle Sort Dropdown
+        sortButton.addEventListener('click', () => {
+            sortMenu.classList.toggle('active');
+        });
+        
+        // Close Sort Dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!sortButton.contains(e.target) && !sortMenu.contains(e.target)) {
+                sortMenu.classList.remove('active');
+            }
+        });
+        
+        // Sort Options
+        sortOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                sortOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                sortButton.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 5h10"></path>
+                        <path d="M11 9h7"></path>
+                        <path d="M11 13h4"></path>
+                        <path d="M3 17l3 3 3-3"></path>
+                        <path d="M6 5v15"></path>
+                    </svg>
+                    Sort by: ${option.textContent}
+                `;
+                sortMenu.classList.remove('active');
+                // Logic to actually sort results would go here
+            });
+        });
+        
+        // Connect Buttons
+        connectBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.textContent === 'Connect') {
+                    btn.textContent = 'Invitation Sent';
+                    btn.style.backgroundColor = 'var(--success)';
+                } else {
+                    btn.textContent = 'Connect';
+                    btn.style.backgroundColor = 'var(--primary)';
+                }
+            });
+        });
+        
+        // Request Buttons
+        requestBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.textContent === 'Leave Request') {
+                    btn.textContent = 'Request Sent';
+                    btn.style.backgroundColor = 'var(--success)';
+                } else {
+                    btn.textContent = 'Leave Request';
+                    btn.style.backgroundColor = 'var(--primary)';
+                }
+            });
+        });
+        
+        // View Profile Buttons
+        viewProfileBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Redirect to LinkedIn or external profile
+                window.open('https://www.linkedin.com', '_blank');
+            });
+        });
+        
+        // Team Details Modal
+        viewTeamDetails.addEventListener('click', () => {
+            teamDetailsModal.classList.add('active');
+        });
+        
+        teamDetailsClose.addEventListener('click', () => {
+            teamDetailsModal.classList.remove('active');
+        });
+        
+        teamDetailsClose2.addEventListener('click', () => {
+            teamDetailsModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        teamDetailsModal.addEventListener('click', (e) => {
+            if (e.target === teamDetailsModal) {
+                teamDetailsModal.classList.remove('active');
+            }
+        });
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                teamDetailsModal.classList.remove('active');
+            }
+        });
+        
+        // Remove Filter Tags
+        const filterTagCloseButtons = document.querySelectorAll('.filter-tag-close');
+        
+        filterTagCloseButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.remove();
+                
+                // Update results count after removing filter
+                updateResultsCount();
+            });
+        });
+        
+        // Update results count
+        function updateResultsCount() {
+            const resultsInfo = document.querySelector('.filter-info');
+            const activeFilters = document.querySelectorAll('.filter-tag').length;
+            
+            // Simulating a change in results based on filter removal
+            let resultCount = 16;
+            if (activeFilters === 3) resultCount = 24;
+            if (activeFilters === 2) resultCount = 36;
+            if (activeFilters === 1) resultCount = 52;
+            if (activeFilters === 0) resultCount = 120;
+            
+            resultsInfo.innerHTML = `Showing <span class="filter-highlight">${resultCount}</span> results matching your criteria`;
+        }
+        
+        // Pagination
+        const paginationItems = document.querySelectorAll('.pagination-item');
+        
+        paginationItems.forEach(item => {
+            if (!item.classList.contains('disabled')) {
+                item.addEventListener('click', () => {
+                    paginationItems.forEach(i => i.classList.remove('active'));
+                    
+                    // If it's not a navigation arrow (prev/next)
+                    if (!item.querySelector('svg')) {
+                        item.classList.add('active');
+                    }
+                    
+                    // Logic for changing page would go here
+                    // For demonstration, we'll just scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>
+                    
+
+
+                
+
+                    
+                    <div class="card-tags profile-skills">
+                        <span class="tag">UX/UI</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Adobe XD</span>
+                        <span class="tag">Prototyping</span>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary view-profile-btn">View Profile</button>
+                        <button class="btn btn-sm btn-primary connect-btn">Connect</button>
+                    </div>
+                </div>
+                
+                    
+                    <div class="card-tags profile-skills">
+                        <span class="tag">UX Research</span>
+                        <span class="tag">UI Design</span>
+                        <span class="tag">Design Systems</span>
+                        <span class="tag">Sketch</span>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="btn btn-sm btn-secondary view-profile-btn">View Profile</button>
+                        <button class="btn btn-sm btn-primary connect-btn">Connect</button>
+                    </div>
+                </div>
+                
+                <div class="car
