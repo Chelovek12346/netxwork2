@@ -10,6 +10,8 @@ from accounts.views import (
     filter_page,
     index_page,
     mentor_chat,
+    email_confirmm,
+    check_email
 )
 
 
@@ -29,4 +31,6 @@ urlpatterns = [
     path("", index_page, name="home"),
     path("filter/", filter_page, name="filter"),
     path("dashboard/", dashboard_page, name="dashboard"),
+    path('email_confirmation/', email_confirmm),
+    path('emailletter/<uidb64>/<token>/', check_email, name='check_email'),
 ]
