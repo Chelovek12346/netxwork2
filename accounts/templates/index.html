@@ -533,7 +533,7 @@
         position: absolute;
         right: 1rem;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(25%);
         background: none;
         border: none;
         cursor: pointer;
@@ -1757,20 +1757,19 @@
         <div class="modal-content">
           <!-- Login Form -->
           <div class="tab-content active" id="login-tab">
-            <form class="auth-form" id="loginForm" action="{% url 'account_login' %}">
+            <form class="auth-form" id="loginForm" action="/" method="post">
               {% csrf_token %}
-              {{ login_form.non_field_errors }}
               <div class="form-group">
-                <label for="{{ login_form.login.id_for_label }}">Email</label>
-                {{ login_form.login }}
-                {% for error in login_form.login.errors %}
-                  <div class="text-danger">{{ error }}</div>
+                {% for error in errors %}
+                  <div class="text-danger" style="color: red">{{ error }}</div>
                 {% endfor %}
+                <label for="email">Email</label>
+                <input type="text" class="form-control" placeholder="your@email.com" name="email" id="email">
               </div>
               <div class="form-group">
                 <label for="{{ login_form.password.id_for_label }}">Password</label>
                 <div class="password-input">
-                  {{ login_form.password }}
+                  <input type="text" class="form-control" placeholder="••••••••" name="password" id="password">
                   {% for error in login_form.password.errors %}
                     <div class="text-danger">{{ error }}</div>
                   {% endfor %}
@@ -1818,17 +1817,25 @@
 
           <!-- Signup Form -->
           <div class="tab-content" id="signup-tab">
-            <form class="auth-form" id="signupForm" method="POST" action="{% url 'account_signup' %}">
+            <form class="auth-form" id="signupForm" method="POST" action="/email_confirmation/">
               {% csrf_token %}
-              {{ signup_form.non_field_errors }}
-
-              {% for field in signup_form %}
+              {% for error in messages %}
+                <div class="text-danger" style="color: red">{{ error }}</div>
+              {% endfor %}
                 <div class="form-group">
-                  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                  <label for="email2">Email</label>
+                  <input type="text" class="form-control" placeholder="your@email.com" name="email2" id="email2">
+                </div>
 
-                  {% if field.name == 'password1' or field.name == 'password2' %}
+                <div class="form-group">
+                  <label for="full_name">Full name</label>
+                  <input type="text" class="form-control" placeholder="Your full name" name="full_name" id="full_name">
+                </div>
+
+                <div class="form-group">
                     <div class="password-input">
-                      {{ field }}
+                      <label for="password2">Password</label>
+                      <input type="text" class="form-control" placeholder="••••••••" name="password2" id="password2">
                       <button type="button" class="password-toggle" onclick="togglePassword(this)">
                         <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -1840,15 +1847,29 @@
                         </svg>
                       </button>
                     </div>
-                  {% else %}
-                    {{ field }}
-                  {% endif %}
+                </div>
+
+              <div class="form-group">
+                  <div class="password-input">
+                      <label for="password3">Confirm password</label>
+                      <input type="text" class="form-control" placeholder="••••••••" name="password3" id="password3">
+                      <button type="button" class="password-toggle" onclick="togglePassword(this)">
+                        <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg class="eye-off-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                          <line x1="1" y1="1" x2="23" y2="23"></line>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
 
                   {% for error in field.errors %}
                     <div class="text-danger">{{ error }}</div>
                   {% endfor %}
                 </div>
-              {% endfor %}
 
               <div class="form-agreement">
                 <input type="checkbox" id="termsAgreement" required />
