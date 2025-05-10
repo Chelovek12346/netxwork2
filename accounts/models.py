@@ -2,8 +2,9 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class User(AbstractUser):
-    username = None
+    username = models.TextField(blank=True)
     email = models.EmailField(unique=True)
+    password_hash = models.TextField(blank=True)
 
     full_name = models.CharField(max_length=255, blank=True)
     bio = models.TextField(blank=True)
