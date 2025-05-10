@@ -130,7 +130,7 @@ def index_page(request):
             login(request, user)
             return redirect("dashboard")
         else:
-            return render(request, 'index.html', {'errors': ['Неверный логин или пароль']})
+            return render(request, 'index.html', {'errors': ['Incorrect email or password']})
     else:
         return render(request, "index.html", {
             'login_form': LoginForm(),
