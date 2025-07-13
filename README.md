@@ -1,4 +1,4 @@
-# 🌐 netXwork
+# 🌐 netXwork *(MVP)*
 
 **Find teammates for your projects, join events, and learn new skills on netXwork** –  
 The platform for students, entrepreneurs, and startup enthusiasts.
